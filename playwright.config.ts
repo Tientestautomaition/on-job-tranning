@@ -11,8 +11,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
 
   // Retry on CI only.
-  retries: process.env.CI ? 2 : 0,
-
+  //retries: process.env.CI ? 2 : 0,
+  retries: 1,
   // Opt out of parallel tests on CI.
   workers: process.env.CI ? 1 : undefined,
 
@@ -31,15 +31,15 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      
-      use: {  
+
+      use: {
         ...devices['Desktop Chromium'],
         viewport: null,
-    
+
         launchOptions: {
           args: ["--start-maximized"]
-      } 
-      }, 
+        }
+      },
     },]
   // Run your local dev server before starting the tests.
   // webServer: {
