@@ -1,0 +1,16 @@
+import { test, expect } from '@playwright/test';
+
+test('Wait for element', async ({ page }) => {
+    //Navigate and wait for element
+    await page.goto('url');
+    await page.locator('locator').waitFor();
+
+    //Navigate and click element
+    //Click will auto-wait for the element
+    await page.goto('url');
+    await page.locator('locator').click();
+})
+
+test('Wait for element', async ({ page }) => {
+    await page.locator('locator').focus();
+})
